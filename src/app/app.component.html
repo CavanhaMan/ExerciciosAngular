@@ -1,0 +1,80 @@
+<p><b>Exemplo 1</b></p>
+<ul>
+  <li *ngFor="let nome of nomes">
+    {{nome}}
+  </li>
+</ul>
+<hr>
+<p><b>Exemplo 2</b></p>
+<ul *ngFor="let nome of nomes, let i=index">
+    <li>
+      nome da pessoa é: {{nome}}, está na posição {{i+1}}
+    </li>
+</ul>
+<hr>
+<p><b>Exemplo 2 - dentro de lista (nao no ul)</b></p>
+<ul>
+    <li *ngFor="let nome of nomes, let i=index">
+      nome da pessoa é: {{nome}}, está na posição {{i+1}}
+    </li>
+</ul>
+<hr>
+<p><b>Exemplo 2 - mostra a posição de cada elemento</b></p>
+<ul *ngFor="let nome of nomes, let i=index">
+    <li>
+      nome da pessoa é: {{nome}}, está na posição {{i+1}}
+    </li>
+</ul>
+<hr>
+<p><b>Exemplo 3 - Usando *ngIf e [hidden].</b></p>
+<p *ngIf="nomes.length==0">Nenhum nome encontrado, usando *ngIf</p>
+<p [hidden]="nomes.length>0">Nenhum nome encontrado, usando hidden</p>
+<hr>
+<p><b>Exemplo 3 - Usando *ngIf e [hidden] teste com DIV</b></p>
+<DIV *ngIf="nomes.length!=0">
+  <P>TESTE Nenhum nome encontrado, usando *ngIf</P>
+  <h1>TESTE COM LISTA DE USUARIOS NAO ZERADO</h1>
+</DIV>
+<DIV [hidden]="nomes.length>0">
+  <P>TESTE Nenhum nome encontrado, usando hidden</P>
+  <h1>TESTE COM LISTA DE USUARIOS ZERADO</h1>
+</DIV>
+<hr>
+<p><b>Exemplo 4 - Buscar por algum nome em específico</b></p>
+<input #box placeholder="digine um nome" (keyup)="busca(box.value)"/>
+<hr>
+<input #box2 placeholder="digine um nome" (click)="busca(box.value)"/>
+<hr>
+<input #box3 placeholder="digine um nome"/>
+<button (click)="busca(box.value)">Avisar</button>
+<hr>
+<p><b>Exemplo 5 - Implementando a busca iteração básica</b></p>
+<input #box5 placeholder="digine um nome" (keyup)="buscar(box5.value)"/>
+<p>{{box5.value}}</p>
+<ul>
+  <li *ngFor="let nomeFiltro of nomesFiltro">
+    {{nomeFiltro}}
+  </li>
+</ul>
+<hr>
+<p><b>Exemplo 5 - Implementando a busca iteração verbosa</b></p>
+<input #box6 placeholder="digine um nome" (keyup)="buscar2(box6.value)"/>
+<p>{{box6.value}}</p>
+<ul>
+  <li *ngFor="let nomeFiltro2 of nomesFiltro2">
+    {{nomeFiltro2}}
+  </li>
+</ul>
+<hr>
+<p><b>Exemplo 5 - Implementando a busca verbosa COM ESTILO</b></p>
+<p>
+  <input #box7 placeholder="digine um nome" (keyup)="buscar3(box7.value)"/>
+  {{box7.value}}
+</p>
+<ul>
+  <li *ngFor="let nomeFiltro3 of nomesFiltro3" [hidden]="nomes.length==''">
+    {{nomeFiltro3}}
+  </li>
+</ul>
+  
+<BR><BR><BR><BR><BR><BR><BR><BR><BR><BR>
