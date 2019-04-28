@@ -32,6 +32,7 @@
     "lodash": "^4.17.11",
     "mime": "^2.4.2",
     "package-lock.json": "^1.0.0",
+    "package.json": "^2.0.1",
     "parsejson": "0.0.3",
     "rxjs": "^5.0.1",
     "ts-helpers": "^1.1.1",
