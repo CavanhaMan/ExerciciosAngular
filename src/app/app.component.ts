@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { Subscriber } from 'rxjs/Subscriber';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent2 {
   nomes: string[] = ['joão','maria','josé','pedro','felipe','carlos'];
   busca(valor:string){
     alert(valor)
@@ -42,4 +44,15 @@ export class AppComponent {
     }
   }
 }
-/*testfdfdfde*/
+/* Exemplo 12 - Pagina 35 - Manipulando lista com observables */
+export class AppComponent implements OnInit {
+  observable: Observable<string>;
+  nomes: Array<string> = [];
+  ngOnInit() {
+    this.observable = new Observable(Subscriber => {
+      setInterval(() => {
+        Subscriber.next(this.makeid(5));
+      },10000);
+    }
+  }
+}
